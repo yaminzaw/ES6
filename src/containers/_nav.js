@@ -39,6 +39,16 @@ export default [
         _tag: 'CSidebarNavItem',
         name: 'Sub Menu',
         to: '/menus/sub-menu',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Test Code',
+        to: '/menus/testcode',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Student Form',
+        to: '/menus/student',
       }
     ]
   },
