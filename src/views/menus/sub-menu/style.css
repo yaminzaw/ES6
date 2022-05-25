@@ -5,27 +5,27 @@
     justify-content: center;
 
 }
-input,textarea{
+.userInput,.userText{
     width: 50%;
     color: rgb(33, 5, 59);
     border-radius: 5px;
     border: 1px solid blueviolet;
+   
 }
-label{
+.userLabel{
     color: blueviolet;
     font-size: large;
     
 }
-h1{
+.userHeader{
     color: blueviolet;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     margin-bottom: 20px;
 }
-p{
+.address{
     color: rgb(33, 5, 59);
 }
-
-.row{
-    margin : 30px;
+.profile{
+    padding: 20px;
 }

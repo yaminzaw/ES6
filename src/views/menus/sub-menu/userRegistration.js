@@ -6,37 +6,37 @@ const UserRegistration = (props) =>{
         <div className="user-reg">
             <div className="col">
                 <div className="row">
-                    <h1>User Registration</h1>
+                    <h1 className="userHeader">User Registration</h1>
                 </div>
-                <div className="row">
+                <div className="row profile">
                     <div className="col">
-                        <label >userName: </label>
+                        <label className="userLabel">userName: </label>
                     </div>
-                    <input type="text"  onChange={(e) => props.handleChangeName(e)}/>
+                    <input className="userInput" type="text"  onChange={(e) => props.handleChangeName(e)}/>
                 </div>
-                <div className="row">
+                <div className="row profile">
                     <div className="col">
-                        <label >FullName: </label>
+                        <label className="userLabel" >FullName: </label>
                     </div>
-                    <input type="text"  onChange={(e) => props.handleChangeFullName(e)} />
+                    <input className="userInput" type="text"  onChange={(e) => props.handleChangeFullName(e)} />
                 </div>
-                <div className="row">
+                <div className="row profile">
                     <div className="col">
-                        <label >Email: </label>
+                        <label className="userLabel">Email: </label>
                     </div>
-                    <input type="text" onChange={(e) => props.handleChangeEmail(e)} />
+                    <input className="userInput" type="text" onChange={(e) => props.handleChangeEmail(e)} />
                 </div>
-                <div className="row">
+                <div className="row profile">
                     <div className="col">
-                        <label >PhoneNo: </label>
+                        <label className="userLabel" >PhoneNo: </label>
                     </div>
-                    <input type="text" onChange={(e) => props.handleChangePhno(e)} />
+                    <input className="userInput" type="text" onChange={(e) => props.handleChangePhno(e)} />
                 </div>
-                <div className="row">
+                <div className="row profile">
                     <div className="col">
-                        <label >Address: </label>
+                        <label className="userLabel" >Address: </label>
                     </div>
-                    <textarea  onChange={(e) => props.handleChangeAddress(e)}></textarea>
+                    <textarea  className="userText" onChange={(e) => props.handleChangeAddress(e)}></textarea>
                 </div>
             </div>
             {/* <h1>User Registration</h1>

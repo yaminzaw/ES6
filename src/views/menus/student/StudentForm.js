@@ -9,6 +9,8 @@ import React,{useState} from "react";
 import StudentInput from "./StudentInput";
 import StudentTable from "./StudentTable";
 import './styleStd.css';
+import StudentSearch from "./StudentSearch";
+import SearchTable from "./SearchTable";
 
 const StudentForm = () =>{
 
@@ -18,11 +20,53 @@ const StudentForm = () =>{
     const [phone,setPhone] = useState("");
 
 
-    const [showTable,setShowTable] = useState([])
+    const [showTable,setShowTable] = useState([]);
+
+    const [ dropData, setDropData ] = useState([
+        {id: 1,name: "ID"},
+        {id: 2,name: "Name"},
+        {id: 3,name: "Email"},
+        {id: 4,name: "Phone"}
+      ]);
+
+    const [searchData,setSearchData] = useState("");
+    const [resultData,setResultData] = useState([]);
+   
+    let searchChange = (e) =>{
+        setSearchData(e.target.value);
+    }
+
+    //Search by id,name,email,phone and add object to array
+    let searchClick = () =>{
+        let dataObj = [];
+        if(searchData==""){
+            alert("Please Select");
+        }else if(searchData=="1"){
+            dataObj = [{id:"id",name:"id",email:"id",phone:"id",description:"id"},{id:"id",name:"id",email:"id",phone:"id",description:"id"}];
+        }else if(searchData=="2"){
+            dataObj = [{id:"name",name:"name",email:"name",phone:"name",description:"name"},
+                        {id:"name",name:"name",email:"name",phone:"name",description:"name"},
+                        {id:"name",name:"name",email:"name",phone:"name",description:"name"}];
+        }
+        else if(searchData=="3"){
+            dataObj = [{id:"email",name:"email",email:"email",phone:"email",description:"email"},
+                        {id:"email",name:"email",email:"email",phone:"email",description:"email"},
+                        {id:"email",name:"email",email:"email",phone:"email",description:"email"},
+                        {id:"email",name:"email",email:"email",phone:"email",description:"email"}];
+        }else if(searchData=="4"){
+            dataObj = [{id:"phone",name:"phone",email:"phone",phone:"phone",description:"phone"}];
+        }
+        setResultData(dataObj);
+    }
 
     const handleChangeId=(e)=>{
-        setId(e.target.value);
-
+        let idchk = /^[0-9]+$/;
+        if(e.target.value === '' || idchk.test(e.target.value)) {
+            setId(e.target.value);
+        } else {
+            alert('Please Enter Number Only');
+            e.target.value = "";
+        }
     }
     const handleChangeName=(e)=>{
         setName(e.target.value);
@@ -48,10 +92,6 @@ const StudentForm = () =>{
                     tmpData["email"]=email;
                     tmpData["phone"]=phone;
 
-                    // dataArr.push(tmpData);
-                    // let showArr = showTable.concat(dataArr);
-                    // setShowTable(showArr);
-
                     setShowTable([...showTable,tmpData]);
 
                 }else if(oldData["id"] == id ){
@@ -59,10 +99,7 @@ const StudentForm = () =>{
                     setShowTable(showTable);
                     break;
                 }
-            } 
-            // let showArr = showTable.concat(dataArr);
-            // setShowTable(showArr);
-            
+            }    
         }
         else if(id!="" && name!="" && email!="" && phone!=""){
             tmp["id"]= id;
@@ -73,7 +110,6 @@ const StudentForm = () =>{
             dataArr.push(tmp);
             setShowTable(dataArr);
         }
-        // setShowTable([...showTable, {"id":id, "name": name, "email": email, "phone": phone}]);
     }
 
     let remove=(id)=>{
@@ -82,8 +118,8 @@ const StudentForm = () =>{
             
         })
         setShowTable(data);
-        
     }
+
     return(
         <CRow>
             <CCol xs="12">
@@ -92,8 +128,8 @@ const StudentForm = () =>{
                     style={{
                     padding: "30px",
                     fontFamily: "monospace",
-                    fontSize: "20px",
-                    color: "#a6057b",
+                    fontSize: "35px",
+                    color: "blueviolet",
                     }}
                 >
                     Student List
@@ -106,10 +142,12 @@ const StudentForm = () =>{
                         handleChangePhone={handleChangePhone}
                         addStudent={addStudent}
                     />
-                    <StudentTable 
-                       
-                        showTable={showTable} remove={remove}
-                    />
+                    <StudentSearch searchClick={searchClick} 
+                            dropData={dropData} 
+                            searchData={searchData} 
+                            searchChange={searchChange} />
+                    <StudentTable showTable={showTable} remove={remove} />
+                    <SearchTable  resultData={resultData} />
                 </CCardBody>
                 </CCard>
             </CCol>

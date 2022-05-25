@@ -6,12 +6,20 @@
     text-align: center;
     font-size: large;
 }
-button{
-    width: 100%;
+.btn{
+    width: 80%;
     height : 40px;
     border-radius: 5px;
     background-color: rgb(182, 129, 231);
 }
 .container {
     padding: 20px;
+}
+.result{
+    padding: 20px;
+}
+.oprLabel{
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(62, 6, 114);
 }
