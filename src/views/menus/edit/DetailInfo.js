@@ -6,47 +6,52 @@ let DetailInfo = props =>{
     let {detailData,resetBtn} = props;
 
     return(
-        <div className="detail">
-            <CRow >
-                <CCol lg="2" className="colDetail">
+        <div style={{overflow:"auto"}} className="detail">
+            <CRow>
+                <CCol lg="3"  className="detailHeaderCol">
+                    <h3>Student Detail</h3>
+                </CCol>
+            </CRow>
+            <CRow>
+                <CCol lg="3"  className="detailCol">
                     <label>ID</label>
                 </CCol>
-                <CCol lg="3" >
-                    <input type="text" value={detailData.id} />
+                <CCol lg="2">
+                    <input type="text" value={detailData.id} className="detailInput" />
                 </CCol>
-            </CRow>
-            <CRow>
-                <CCol lg="2" className="colDetail">
+            </CRow><br/>
+            <CRow >
+                <CCol lg="3" className="detailCol">
                     <label>Name</label>
                 </CCol>
-                <CCol lg="3">
-                    <input type="text" value={detailData.name} />
+                <CCol lg="2">
+                    <input type="text" value={detailData.name}  className="detailInput" />
                 </CCol>
-            </CRow>
+            </CRow><br/>
             <CRow>
-                <CCol lg="2" className="colDetail">
+                <CCol lg="3"  className="detailCol">
                     <label>Email</label>
                 </CCol>
-                <CCol lg="3">
-                    <input type="text" value={detailData.email} />
+                <CCol lg="2">
+                    <input type="text" value={detailData.email} className="detailInput" />
                 </CCol>
-            </CRow>
+            </CRow><br/>
             <CRow>
-                <CCol lg="2" className="colDetail">
+                <CCol lg="3"  className="detailCol">
                     <label>PhoneNo</label>
                 </CCol>
-                <CCol lg="3">
-                    <input type="text" value={detailData.phone} />
+                <CCol lg="2">
+                    <input type="text" value={detailData.phone} className="detailInput" />
                 </CCol>
-            </CRow>
+            </CRow><br/>
             <CRow >
-                <CCol lg="2" className="colDetail">
+                <CCol lg="3" className="detailCol">
                 </CCol>
-                <CCol lg="4">
-                    <button onClick={resetBtn} style={{width:"80px",height:"40px"}}>Reset</button>
+                <CCol lg="2">
+                    <button onClick={resetBtn} className="detailBtn" >Reset</button>
                 </CCol>
                 
-            </CRow>
+            </CRow><br/>
             
         </div>
     

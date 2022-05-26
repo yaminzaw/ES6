@@ -32,6 +32,7 @@ const EditIndex = () =>{
                     </CHeader>
                     <CCardBody>
                         <DetailTable info={info} clickData={clickData} />
+                        <hr></hr>
                         <DetailInfo detailData={detailData} resetBtn={resetBtn} />
                     </CCardBody>
                 </CCard>

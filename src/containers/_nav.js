@@ -54,6 +54,11 @@ export default [
         _tag: 'CSidebarNavItem',
         name: 'Edit Student',
         to: '/menus/edit',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Registration Form',
+        to: '/menus/assignment',
       }
     ]
   },

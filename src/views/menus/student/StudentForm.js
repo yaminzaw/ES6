@@ -8,9 +8,10 @@ import {
 import React,{useState} from "react";
 import StudentInput from "./StudentInput";
 import StudentTable from "./StudentTable";
-import './styleStd.css';
+import './styleStd.scss';
 import StudentSearch from "./StudentSearch";
 import SearchTable from "./SearchTable";
+import RadioSelect from "./RadioSelect";
 
 const StudentForm = () =>{
 
@@ -120,6 +121,55 @@ const StudentForm = () =>{
         setShowTable(data);
     }
 
+
+    const [radioData,setRadioData] = useState([
+        {id: 1,name: "Id"},
+        {id: 2,name: "Name"},
+        {id: 3,name: "Email"},
+        {id: 4,name: "Phone"}
+    ]);
+
+    const [radioName,setRadioName] = useState("");
+    const [radioValue,setRadioValue] = useState("");
+
+    const clickRadio =(data)=>{
+        setRadioName(data.name);
+        setRadioValue(data.id);
+    }
+
+    const [chkData,setchkData] = useState([
+        {id: 1,name: "Java"},
+        {id: 2,name: "PHP"},
+        {id: 3,name: "React"},
+        {id: 4,name: "Laravel"}
+    ]);
+
+    const [result,setResult] = useState([])
+
+    const checkSome = (e) =>{
+        let value = e.target.value;
+        let checked = e.target.checked;
+
+        console.log(value);
+        console.log(checked);
+
+        let data = chkData.map(obj => {
+            return parseInt(value) === parseInt(obj.id) ? {...obj, is_checked: checked} : obj
+        })
+        console.log(data);
+        setchkData(data);
+
+        let resArr = [];
+        
+        for(let i=0;i<data.length;i++){
+            if(data[i].is_checked == true){
+                resArr.push(data[i]);
+            }
+        }
+        setResult(resArr);
+        console.log("ResArr",result);
+    }
+
     return(
         <CRow>
             <CCol xs="12">
@@ -146,7 +196,14 @@ const StudentForm = () =>{
                             dropData={dropData} 
                             searchData={searchData} 
                             searchChange={searchChange} />
-                    <StudentTable showTable={showTable} remove={remove} />
+                    <RadioSelect radioData={radioData} clickRadio={clickRadio}  
+                        radioName={radioName}  
+                        radioValue={radioValue}
+                        chkData={chkData}
+                        checkSome={checkSome}
+                        result={result}
+                        />
+                    <StudentTable showTable={showTable} remove={remove}  />
                     <SearchTable  resultData={resultData} />
                 </CCardBody>
                 </CCard>

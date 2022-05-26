@@ -4,14 +4,41 @@
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
 }
-.detailRow{
-    font-size: 17px;
-}
+
 .detail{
     font-size: 17px;
     color: rgb(41, 7, 73);
-    
+    min-width: 40%;
 }
-.colDetail{
-    margin-left: 40%
+.detailInput{
+    border: 1px solid rgb(55, 3, 104);
+    width: 10rem;
+}
+.detailCol{
+    margin-left: 20%;
+}
+.detailBtn{
+    width: 10rem;
+    height: 3rem;
+    background-color: rgb(184, 139, 226);
+    border-radius: 2rem;
+    border:rgb(142, 30, 247);
+    font-size: 18px;
+    cursor: pointer;
+}
+.detailBtn:hover {
+	-webkit-transform: translateY(-1px);
+	transform: translateY(-3px);
+    background-color: rgb(171, 111, 228);
+}
+.detailRow{
+    color: rgb(142, 30, 247);
+    font-size: 15px;
+}
+.detailHeaderCol{
+    margin-left: 35%;
+    color: rgb(65, 12, 114);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 20px;
 }
