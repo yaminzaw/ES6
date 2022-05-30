@@ -1,0 +1,13 @@
+td{
+    border:1px solid black;
+    font-size: 20px;
+}
+table{
+    border:1px solid black;
+    margin-left: 10%;
+    margin-top: 5%;
+    text-align: center;
+}
+thead{
+    background-color: rgb(160, 152, 152);
+}
